@@ -6,15 +6,56 @@ html{
     background-color: #b31b1b;
     padding-top : 10px;
 }
+.nav-left,
+.nav-center,
+.nav-right {
+    flex: 1;
+}
 
-h1{
-    padding-bottom : 50px;
+.login-container{
+    display:flex;
+    justify-content:center;
+    padding-top: 10px;
 }
-#myMarist_logo{
-    position : absolute;
-    transform : translate(210%, 0%);
-    overflow : hidden;
+.nav-center {
+    display: flex;
+    justify-content: center;
 }
+
+.nav-right {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 20px;
+}
+
+#maristlogin {
+    text-decoration: none;
+    color: white;
+}
+#banner {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+#myMarist_logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#maristlogin {
+    margin-left: auto;
+}
+
+#banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 40px;
+    height: 80px;   
+}
+
 
 /*Navigation Menu Styling*/
 #nav_menu ul {
@@ -132,4 +173,36 @@ h3{
 #event_1_desc{
     float : right;
     font-weight : none;
+}
+/*Nav Waffle Menu Styling*/
+#waffle_menu{
+    background-color: rgb(120, 120, 120);
+    color : white;
+    float : right;
+    width : 1000px;
+    margin-top : 93px;
+    padding-bottom : 200px;
+}
+
+#brightspace_button{
+    margin-bottom: 0px;
+   
+}
+
+h3{
+    margin-top : 30px;
+}
+
+p3{
+    display : flex;
+    word-spacing : 95px;
+    margin-left : 80px;
+    margin-right : 60px;
+}
+
+h5{
+    display : flex;
+    gap : 100px;
+    margin-left : 85px;
+    margin-right : 60px;
 }
