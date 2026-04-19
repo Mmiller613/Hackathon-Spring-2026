@@ -1,14 +1,14 @@
 #logs
 logs/
 
-#byte-compiled/optimized/dll files
-db/pycache
-db/schema/pycache
-pycache/
+# byte-compiled/optimized/dll files
+db/__pycache__
+db/schema/__pycache__
+__pycache__/
 *.py[cod]
 *$py.class
 
-#distribution/packaging
+# distribution/packaging
 .Python
 build/
 develop-eggs/
@@ -28,7 +28,7 @@ share/python-wheels/
 *.egg
 MANIFEST
 
-#environments
+# environments
 .env
 .venv
 env/
@@ -37,11 +37,11 @@ ENV/
 env.bak/
 venv.bak/
 
-#test
+# test
 .pytest_cache
 
-#course material
+# course material
 .answers
 
-#mac
+# mac
 .DS_Store
