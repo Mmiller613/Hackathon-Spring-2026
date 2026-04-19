@@ -78,7 +78,7 @@ h1{
     display: block;
 }
 
-/*Main Content Styling*/
+/*Announcement Banner Styling*/
 main{
     padding-top : 0px;
     text-align: center;
@@ -101,10 +101,12 @@ h2{
     text-align: right;
 }
 
+/*Calendar Section Styling*/
 section p{
     font-size : 15px;
     text-align: center;
     padding-top : 50px;
+    padding-bottom : 50px;
 }
 
 h3{
@@ -121,15 +123,54 @@ h3{
     float : left;
 }
 
-#event_1{
+p2{
     text-align : bottom;
-    padding-bottom : 50px;
+    padding-bottom : 10px;
+    padding-top : 10px;    
+    margin-left : 80px;
+    margin-top : 10px;
+    float : left;
     color : white;
     width : 100px;
+    font-weight : bold;
     background-color: #b31b1b;
 }
 
 #event_1_desc{
     float : right;
     font-weight : none;
+    margin-right : 20px;
+}
+
+/*Nav Waffle Menu Styling*/
+#waffle_menu{
+    background-color: rgb(120, 120, 120);
+    color : white;
+    float : right;
+    width : 1000px;
+    margin-top : 93px;
+    padding-bottom : 200px;
+}
+
+#brightspace_button{
+    margin-bottom: 0px;
+   
+}
+
+h3{
+    margin-top : 30px;
+}
+
+p3{
+    display : flex;
+    word-spacing : 95px;
+    margin-left : 80px;
+    margin-right : 60px;
+}
+
+h5{
+    display : flex;
+    gap : 100px;
+    margin-left : 85px;
+    margin-right : 60px;
 }
