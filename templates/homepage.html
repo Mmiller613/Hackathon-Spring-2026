@@ -7,13 +7,23 @@
 </head>
 
 <body>
-    <div id = "heading">
-        <header id = "banner">
-                        <h1>
-                            <a class="logo custom-logo align-items-center d-md-inline-flex d-sm-none d-none logo-md" href="/templates/homepage.html" title="Go to my.marist.edu">
-                            <img id = "myMarist_logo" alt="my.marist.edu" class="mr-2" height="56" src="/static/Images/myMarist_logo.png"></a>
-                        </h1>
-        </header>
+        <div id = "heading">
+            <header id="banner">
+
+        <div class="nav-left"></div>
+
+        <div class="nav-center">
+            <a href="/">
+                <img id="myMarist_logo" src="/static/Images/myMarist_logo.png" height="56">
+            </a>
+        </div>
+            <div class="nav-right">
+                {% if not studentid %}
+                    <h3><a id="maristlogin" href="/login">Login</a></h3>
+                {% endif %}
+            </div>
+
+    </header>
         <nav id = "nav_menu">
             <ul>
                 <li><a href="#">Welcome</a>
@@ -49,7 +59,7 @@
             </ul>
         </nav>
     </div>
-    <div id = "announcement">
+    <div id = "main_content">
         <main>
             <section>   
                 <h2 id = "announcements_header">
@@ -63,7 +73,9 @@
             <aside id = "calendar">
                 <h3>Calendar</h3>
                 <div>
-                    <p2 id = "event_1">April-May 14th-15th</p2>
+                    <div id = event_1;>
+                        <p2>April-May 14th-15th</p2>
+                    </div>
                     <aside id = event_1_desc>
                         <h4>
                             Summer Registration Opens
@@ -72,6 +84,20 @@
                             Time at 10:30AM unitl 11:59PM
                         </p1>
                     </aside>
+                </div>
+            </aside>
+            <aside>
+                <div id = "waffle_menu">
+                    <div id = "brightspace_button">
+                        <h5>
+                            <a href="https://brightspace.marist.edu/d2l/home" title="Go to Brightspace" target="_blank"><img id="brighspace_icon" src="/static/Images/brightspace_icon.png" height="80"></a>
+                            <a href="https://degreeworks.marist.edu/worksheets/WEB31" title="Go to Degree Works"><img id="degreeWorks_icon" src="/static/Images/degreeWorks_Icon.png" height="80"></a>
+                            <a href="https://library.marist.edu/" title="Go to the Library Homepage" target="_blank"><img id="library_icon" src="/static/Images/library_icon.png" height="80"></a>
+                            <a href="https://my.marist.edu/marist-directory" title="Go to the Marist Directory" target="_blank"><img id="maristDirectory_icon" src="/static/Images/maristDirectory_icon.png" height="80"></a>
+                            <a href="https://my.marist.edu/post-office" title="Go to Post Office Homepage" target="_blank"><img id="packages_icon" src="/static/Images/packages_icon.png" height="80"></a>
+                        </h5>
+                        <p3>Brightspace Degree_Works Library Marist_Directory My_Mail</p3>
+                    </div>
                 </div>
             </aside>
         </main>

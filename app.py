@@ -55,38 +55,34 @@ def create_app():
     
     @app.route('/')
     def index():
-        #user = checkStudentLogin()
-        return render_template('homepage.html')
-        """if not user:
+        student = checkStudentLogin()
+        if not student:
             return render_template('homepage.html')
         else:
-            return render_template('homepage.html')"""
+            return render_template('homepage.html', studentid=student.StudentID)
     
-    """@app.route('/login', methods=['GET', 'POST'])
+    @app.route('/login', methods=['GET', 'POST'])
     def login():
         logger.info("Student has accessed login page")
         if request.method == 'POST':
             try:
-                # get the email and password from the login form
                 password = request.form['PWord']
                 email = request.form['Email']
 
-                # query for the existence of a user with that email
-                user = query.get_User(schema.User, Email=email)
+                student = query.get_Student(schema.Student, Email=email)
 
-                # create a default error message for security sake
                 error = f"failed login attempt for: {email}"
 
-                if not user:
+                if not student:
                     logger.warning(f"Login attempt with non-existent email: {email}")
                     return render_template('login.html', error=error)
                 
-                if bcrypt.checkpw(password.encode('utf-8'), user.PWord.encode('utf-8')):
+                if bcrypt.checkpw(password.encode('utf-8'), student.PWord.encode('utf-8')):
                     logger.info(f"Successful login: {email}")
-                    loggedinuser = str(user.UserID)
-                    userCache[loggedinuser] = user
-                    response = redirect(url_for('my_feed'))
-                    response.set_cookie('userloggedin', loggedinuser)
+                    loggedinstudent = str(student.StudentID)
+                    userCache[loggedinstudent] = student
+                    response = redirect(url_for('index'))
+                    response.set_cookie('studentloggedin', loggedinstudent)
                     return response
                 
                 else:
@@ -97,7 +93,7 @@ def create_app():
                 logger.error(f"An error occurred during login: {e}")
                 return render_template('login.html')
         elif request.method == 'GET':
-            return render_template('login.html')"""
+            return render_template('login.html')
     return app
     
 if __name__ == "__main__":
