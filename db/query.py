@@ -19,11 +19,11 @@ def get_Student_Info(studentid: int) -> list:
                 S."Email" AS email, S."Gender" AS gender, S."DOB" AS dob, S."GPA" AS gpa,
                 S."Level" AS level 
             FROM "student" S
-            WHERE S."StudentID" = student_id
+            WHERE S."StudentID" = :student_id
             """)
-
-        info = session.execute(query, {"student_id": studentid}).mappings().all()
-        return [dict(row) for row in info]
+        print("DEBUG studentid:", studentid)
+        info = session.execute(query, {"student_id": studentid}).mappings().first()
+        return info
     
     except Exception as e:
         session.rollback()
@@ -41,7 +41,7 @@ def get_Student_Degree(studentid: int) -> list:
             FROM "student" S 
             JOIN "studentdegree" SD ON S."StudentID" = SD."StudentID"
             JOIN "degree" D ON SD."DegreeID" = D."DegreeID"
-            WHERE S."StudentID" = student_id
+            WHERE S."StudentID" = :student_id
             """)
         
         degree = session.execute(query, {"student_id":studentid}).mappings().all()
@@ -63,7 +63,7 @@ def get_Student_Courses(studentid: int) -> list:
             FROM  "student" S
             JOIN "studentcourse" SC ON S."StudentID" = SC."StudentID"
             JOIN "course" C ON SC."CourseID" = C."CourseID"
-            WHERE S."StudentID" = student_id
+            WHERE S."StudentID" = :student_id
             """)
         
         courses = session.execute(query, {"student_id":studentid}).mappings().all()
@@ -85,7 +85,7 @@ def get_Student_Minor(studentid: int) -> list:
             FROM "student" S
             JOIN "studentminor" SM ON S."StudentID" = SM."StudentID"
             JOIN "minor" M ON SM."MinorID" = M."MinorID"
-            WHERE S."StudentID" = student_id
+            WHERE S."StudentID" = :student_id
             """)
         
         minor = session.execute(query, {"student_id":studentid}).mappings().all()
@@ -107,7 +107,7 @@ def get_Student_Advisor(studentid: int) -> list:
             FROM "student" S
             JOIN "studentadvisor" SA ON S."StudentID" = SA."StudentID"
             JOIN "advisor" A ON SA."AdvisorID" = A."AdvisorID"
-            WHERE S."StudentID" = student_id
+            WHERE S."StudentID" = :student_id
             """)
         advisor = session.execute(query, {"student_id":studentid}).mappings().all()
         return [dict(row) for row in advisor]
@@ -128,7 +128,7 @@ def get_Course_Professor(courseid: int) -> list:
             FROM "course" C
             JOIN "advisorcourse" AC ON C."CourseID" = AC."CourseID"
             JOIN "advisor" P ON AC."AdvisorID" = P."AdvisorID"
-            WHERE C."CourseID" = course_id
+            WHERE C."CourseID" = :course_id
             """
         )
         professor = session.execute(query, {"course_id":courseid}).mappings().all()

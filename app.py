@@ -94,6 +94,46 @@ def create_app():
                 return render_template('login.html')
         elif request.method == 'GET':
             return render_template('login.html')
+    
+    @app.route('/logout', methods=['GET','POST'])
+    def logout():
+        logger.info("Student has logged out")
+        
+        try:
+            loggedinstudent = request.cookies.get('stuentloggedin')
+
+            if loggedinstudent in userCache:
+                del userCache[loggedinstudent]
+        
+            response = redirect(url_for('index'))
+            response.delete_cookie('studentloggedin')
+
+            return response 
+        except Exception as e:
+            logger.warning(f"Error logging student out: {e}")
+            return redirect(url_for('index'))
+        
+    @app.route('/student')
+    def student():
+        logger.info("Student has accessed student page")
+        
+        student = checkStudentLogin()
+        if not student:
+            logger.warning("No student logged in")
+            return redirect(url_for('login'))
+        try:
+            studentinfo = query.get_Student_Info(student.StudentID)
+            studentdegree = query.get_Student_Degree(student.StudentID)
+            studentcourses = query.get_Student_Courses(student.StudentID)
+            studentminor = query.get_Student_Minor(student.StudentID)
+            studentadvisor = query.get_Student_Advisor(student.StudentID)
+            
+            return render_template('student.html', studentid=student.StudentID, studentinfo = studentinfo, studentdegree = studentdegree,
+                                   studentcourses = studentcourses, studentminor = studentminor, studentadvisor = studentadvisor)
+        except Exception as e:
+            logger.warning(f"Error loading student page: {e}")
+            return redirect(url_for('index'))
+
     return app
     
 if __name__ == "__main__":

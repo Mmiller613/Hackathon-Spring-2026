@@ -45,7 +45,7 @@
                         <li><a href="#">Student Related Forms & Resources</a></li>
                     </ul>
                 </li>
-                <li><a href="/student">Student</a>
+                <li><a href="#">Student</a>
                     <ul>
                         <li><a href="#">Accomdations & Accessability</a></li>
                         <li><a href="#">Advising Undergraduate</a></li>
@@ -62,48 +62,31 @@
         </nav>
     </div>
     <div id = "main_content">
-        <main>
-            <section>   
-                <h2 id = "announcements_header">
-                    myMarist Announcements
-                </h2>
-                <p>
-                    No New Announcements
-                </p>
-                
-            </section>
-            <aside id = "calendar">
-                <h3>Calendar</h3>
-                <div>
-                    <div id = event_1;>
-                        <p2>April-May 14th-15th</p2>
-                    </div>
-                    <aside id = event_1_desc>
-                        <h4>
-                            Summer Registration Opens
-                        </h4>
-                        <p1>
-                            Time at 10:30AM unitl 11:59PM
-                        </p1>
-                    </aside>
-                </div>
-            </aside>
-            <aside>
-                <div id = "waffle_menu">
-                    <div id = "brightspace_button">
-                        <h5>
-                            <a href="https://brightspace.marist.edu/d2l/home" title="Go to Brightspace" target="_blank"><img id="brighspace_icon" src="/static/Images/brightspace_icon.png" height="80"></a>
-                            <a href="https://degreeworks.marist.edu/worksheets/WEB31" title="Go to Degree Works"><img id="degreeWorks_icon" src="/static/Images/degreeWorks_Icon.png" height="80"></a>
-                            <a href="https://library.marist.edu/" title="Go to the Library Homepage" target="_blank"><img id="library_icon" src="/static/Images/library_icon.png" height="80"></a>
-                            <a href="https://my.marist.edu/marist-directory" title="Go to the Marist Directory" target="_blank"><img id="maristDirectory_icon" src="/static/Images/maristDirectory_icon.png" height="80"></a>
-                            <a href="https://my.marist.edu/post-office" title="Go to Post Office Homepage" target="_blank"><img id="packages_icon" src="/static/Images/packages_icon.png" height="80"></a>
-                        </h5>
-                        <p3>Brightspace Degree_Works Library Marist_Directory My_Mail</p3>
-                    </div>
-                </div>
-            </aside>
+        <h4>
+            {%if not studentid %}
+                <h2>No student Logged in</h2>
+            {%else%}
+                <h1>{{ studentinfo.fname }} {{ studentinfo.lname }} ({{studentinfo.studentid}})</h1>
+                <h2>Degree</h2>
+                {% for studentdegrees in studentdegree %}
+                    <h4>{{studentdegrees.degreename}}</h4>
+                {% endfor %}
+                <h2>Minor</h2>
+                {% for studentminors in studentminor %}
+                    <h4>{{studentminors.minorname}}</h4>
+                {% endfor %}
+                <h2>Bio</h2>
+                <h4> {{studentinfo.level}}</h4>
+                <h4>Email: {{studentinfo.email}} | GPA:{{studentinfo.gpa}}</h4>
+                <h4>Gender: {{studentinfo.gender}} | Date of Birth: {{studentinfo.dob}}</h4>
+                <h2>Advisor</h2>
+                {% for studentadvisors in studentadvisor %}
+                    <h4>Primary/Major: <a href="mailto:{{studentadvisors.email}}" style="color:red">{{studentadvisors.fname}} {{studentadvisors.lname}}</a></h4> 
+                {% endfor %}
+            {%endif%}
         </main>
     </div>
+
 </body>
 </html>
 
