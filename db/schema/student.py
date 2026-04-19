@@ -8,15 +8,14 @@ from db.schema.studentminor import Studentminor
 
 class Student(Base):
     __tablename__ = 'student'
-    StudentID = Column(Integer,primary_key=True,autoincrement=True)
+    StudentID = Column(String(8),primary_key=True)
     FName = Column(String(40))
     LName = Column(String(40))
     Email = Column(String(40))
     PWord = Column(String(100))
-    Email = Column(String(40))
     Gender = Column(String(10))
     DOB = Column(String(20))
-    GPA = Column (Numeric(1,3))
+    GPA = Column(Numeric(3,2))  
     Level = Column (String(20))
 
     Advisor = relationship('Advisor', secondary = Studentadvisor, back_populates = 'Student')

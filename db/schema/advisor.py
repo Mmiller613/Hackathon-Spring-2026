@@ -6,7 +6,7 @@ from db.schema.advisorcourse import Advisorcourse
 
 class Advisor(Base):
     __tablename__ = 'advisor'
-    AdvisorID = Column(Integer,primary_key=True,autoincrement=True)
+    AdvisorID = Column(String(8),primary_key=True)
     FName = Column(String(40))
     LName = Column(String(40))
     Email = Column(String(40))

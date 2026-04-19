@@ -9,7 +9,7 @@ class Minor(Base):
     MinorID = Column(Integer,primary_key=True,autoincrement=True)
     MinorName = Column(String(40))
 
-    Student = relationship('Student', secondary = Studentminor, back_populates = 'Advisor')
+    Student = relationship('Student', secondary = Studentminor, back_populates = 'Minor')
 
     def __repr__(self):
         return f"""
