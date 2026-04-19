@@ -1,0 +1,135 @@
+/*Header Styling*/
+html{
+    background-color : rgb(245, 246, 247);
+}
+#heading{
+    background-color: #b31b1b;
+    padding-top : 10px;
+}
+
+h1{
+    padding-bottom : 50px;
+}
+#myMarist_logo{
+    position : absolute;
+    transform : translate(210%, 0%);
+    overflow : hidden;
+}
+
+/*Navigation Menu Styling*/
+#nav_menu ul {
+    height : 34px;
+    line-height : 14px;
+	list-style-type: none;
+    font-family : arial;
+    font-size : 15px;
+    font-weight : 700;
+	padding: 0;
+	position: relative;
+    white-space-collapse: collapse;
+    text-size-adjust: 100%;
+
+}
+#nav_menu ul li {
+	float: left;
+}
+#nav_menu ul li a {
+    margin-bottom: -16.3px;
+    margin-top : 5px;
+    box-sizing: border-box;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    display: block;
+    width: 160px;
+    text-align: center;
+    padding-bottom : 5px;
+    padding-top : 10px;
+    padding-left : 8px;
+    padding-right : 8px;
+    text-decoration: none;
+    background-color: rgb(45, 46, 47);
+    color: white;
+    font-weight: bold;
+    cursor : pointer;
+}
+#nav_menu a.current {
+	color: yellow;
+}
+#nav_menu ul ul {
+    background-color : rgb(45, 46, 47);
+    display : none;
+    position: absolute;
+    top: 100%;
+}
+#nav_menu ul ul li {
+	float: none;
+    font-size : 12px;
+    padding-top : 0px;
+    padding-bottom : 4px;
+}
+#nav_menu ul li:hover > ul {
+	display: block;
+}
+#nav_menu > ul::after {
+    content: "";
+    clear: both;
+    display: block;
+}
+
+/*Main Content Styling*/
+main{
+    padding-top : 0px;
+    text-align: center;
+    font-family : sans-serif;
+}
+
+h2{
+    text-decoration : underline;
+    font-weight : bold;
+    font-size : 30px;
+    padding-top : 0px;
+}
+
+#first_announcement{
+    height : 150px;
+    width : 350px;
+    border-color : #b31b1b;
+    border-style : solid;
+    border-width : 2px;
+    text-align: right;
+}
+
+section p{
+    font-size : 15px;
+    text-align: center;
+    padding-top : 50px;
+}
+
+h3{
+    padding-top : 50px;
+    padding-left : 0px;
+    font-size : 20px;
+    font-family: sans-serif;
+    border-bottom-color :#b31b1b;
+    border-bottom-style : solid;
+}
+
+#calendar{
+    width : 500px;
+    float : left;
+}
+
+#event_1{
+    text-align : bottom;
+    padding-bottom : 50px;
+    color : white;
+    width : 100px;
+    background-color: #b31b1b;
+}
+
+#event_1_desc{
+    float : right;
+    font-weight : none;
+}
